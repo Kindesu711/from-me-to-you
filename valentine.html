@@ -1,0 +1,123 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>My Valentine Proposal</title>
+    <style>
+      img {
+        width: 300px;
+        margin-top: 20px;
+      }
+
+      body {
+        text-align: center;
+        background-color: pink;
+        font-family: "Arial", sans-serif;
+      }
+
+      h1 {
+        color: red;
+        font-size: 2.5em;
+        font:
+          bold italic 2.5em "Comic Sans MS",
+          cursive,
+          sans-serif;
+      }
+      p {
+        font:
+          italic 1.5em "Comic Sans MS",
+          cursive,
+          sans-serif;
+        font-size: 1.5em;
+        text-align: center;
+        max-width: 700px;
+        margin: 20px auto;
+      }
+
+      button {
+        display: inline-block;
+        font-size: 1.2em;
+        padding: 10px 20px;
+        margin: 10px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        gap: 20px;
+      }
+
+      #btn {
+        background-color: lightgreen;
+        transition:
+          padding 0.3s ease,
+          font-size 0.3s ease;
+      }
+
+      #btn2 {
+        background-color: lightcoral;
+      }
+    </style>
+  </head>
+  <body>
+    <div>
+      <img src="img/firstgif.gif" alt="Bear holding flower" />
+      <h1 className="title">May I be your Valentine?</h1>
+      <p>I really want to make this day special to YOU, may I pu?</p>
+    </div>
+    <div>
+      <button id="btn">Yes</button>
+      <button id="btn2">No</button>
+    </div>
+  </body>
+  <script>
+    const yesBtn = document.getElementById("btn");
+    const noBtn = document.getElementById("btn2");
+
+    let noCount = 0;
+
+    const getNoButtonText = () => {
+      const phrases = [
+        "No",
+        "Sure ka pu?",
+        "Sure na sure puu?",
+        "Super sure ka pu :(",
+        "Luhhh I'm sad na :(",
+        "Ayaw mo pu talagaaa?",
+        "Come on pu say yes na :(",
+        "I really want to be your Valentine",
+        "Plsss pu may I be pu?",
+        "I'm heartbroken :(",
+        "My heart is hurt :(",
+        "Tara na pu, I'm really looking forward to this",
+        "Ayaw mo pu ba talaga T^T",
+        "Sigi na puu, plsss :(",
+        "luhhh, pls pu say yes na T^T",
+        "Plsss plsss plsss pu I really really like you",
+        "Final na pu ba talaga yun? plsss say yes na pu T^T",
+      ];
+
+      return phrases[Math.min(noCount, phrases.length - 1)];
+    };
+
+    let paddingX = 20;
+    let paddingY = 10;
+    let fontSize = 1.2;
+
+    noBtn.addEventListener("click", () => {
+      noCount++;
+
+      noBtn.textContent = getNoButtonText();
+
+      paddingX += 10;
+      paddingY += 5;
+      fontSize += 0.2;
+
+      yesBtn.style.padding = `${paddingY}px ${paddingX}px`;
+      yesBtn.style.fontSize = `${fontSize}em`;
+    });
+
+    yesBtn.addEventListener("click", () => {
+      window.location.href = "yes.html";
+    });
+  </script>
+</html>
